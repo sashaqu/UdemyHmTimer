@@ -98,4 +98,43 @@ window.addEventListener('DOMContentLoaded', function() {
   }
   console.log('всё хорошо');
   setClock('timer', deadLine);
+
+  // Modal
+
+  let more = document.querySelector('.more'),
+      overlay = document.querySelector('.overlay'),
+      close = document.querySelector('.popup-close'),
+      description = document.querySelector('.description-btn');
+
+  this.addEventListener('click', function(e) {
+    let target = e.target;
+
+    if(target.classList.contains('more') || target.classList.contains('description-btn')) {
+      console.log(this); // Ссылаемся на window
+      console.log(target); // Это собственно и есть то, на что мы нажали.
+      overlay.style.display = 'block';
+      target.classList.add('more-splash');
+      document.body.style.overflow = 'hidden';
+    }
+  });
+
+  // more.addEventListener('click', function() {
+  //   overlay.style.display = 'block';
+  //   this.classList.add('more-splash');
+  //   document.body.style.overflow = 'hidden';
+  // });
+
+  close.addEventListener('click', function() {
+    overlay.style.display = 'none';
+
+    if(more.classList.contains('more-splash')) {
+      more.classList.remove('more-splash');
+    }
+
+    if(description.classList.contains('more-splash')) {
+      description.classList.remove('more-splash');
+    }
+
+    document.body.style.overflow = '';
+  });
 });
