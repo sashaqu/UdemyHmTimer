@@ -96,6 +96,6 @@ window.addEventListener('DOMContentLoaded', function() {
           }
         }
   }
-
+  console.log('всё хорошо');
   setClock('timer', deadLine);
 });
